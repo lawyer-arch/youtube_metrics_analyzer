@@ -27,7 +27,7 @@ venv\Scripts\activate  # Windows
 
 ### 3. Установка зависимостей
 ```
-pip install tabulate
+pip install -e ".[dev]"
 ```
 
 ### 4. Запуск
@@ -74,7 +74,7 @@ pip install -e ".[dev]"
 
 ### Запуск тестов
 ```
-pytest
+python -m pytest -v
 ```
 
 ### Запуск с покрытием

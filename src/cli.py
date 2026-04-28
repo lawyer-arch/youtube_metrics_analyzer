@@ -45,6 +45,10 @@ def validate_files(file_paths: List[str]) -> List[Path]:
         if not path.is_file():
             print(f"Ошибка: Путь не является файлом: {file_path}", file=sys.stderr)
             sys.exit(1)
+        # Также проверяем, что файл имеет расширение .csv
+        if path.suffix.lower() != '.csv':
+            print(f"Ошибка: Файл не является CSV: {file_path}", file=sys.stderr)
+            sys.exit(1)
         valid_paths.append(path)
     return valid_paths
 
