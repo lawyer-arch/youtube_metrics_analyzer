@@ -32,7 +32,7 @@ pip install tabulate
 
 ### 4. Запуск
 ```
-python main.py --files stats1.csv --report clickbait
+python3 main.py --files tests/fixtures/valid_data.csv tests/fixtures/empty_data.csv --report clickbait
 ```
 
 ### 5. Для разработки (с тестами)
