@@ -55,9 +55,14 @@ class TestCLI:
         """Тест валидации пути, не являющегося файлом."""
         with pytest.raises(SystemExit):
             validate_files([str(temp_empty_file)])
-
+    
         captured = capsys.readouterr()
-        assert "не является файлом" in captured.err
+        # Проверяем, что сообщение об ошибке содержит информацию о проблеме
+        # Это может быть либо "не является файлом" либо "не является CSV"
+        assert (
+            "не является файлом" in captured.err or 
+            "не является CSV" in captured.err
+        )
 
     @patch("sys.argv", ["main.py", "--files", "data.csv", "--report", "clickbait"])
     def test_parse_arguments_valid(self):

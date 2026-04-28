@@ -24,8 +24,11 @@ class ClickbaitReporter(BaseReporter):
 
         for row in data:
             try:
-                ctr = float(row.get("ctr", 0))
-                retention = float(row.get("retention_rate", 0))
+                if "ctr" not in row or "retention_rate" not in row:
+                    continue    
+
+                ctr = float(row["ctr"])
+                retention = float(row["retention_rate"])
 
                 if ctr > 15 and retention < 40:
                     filtered.append(

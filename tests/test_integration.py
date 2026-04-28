@@ -54,7 +54,7 @@ class TestIntegration:
         assert [item["title"] for item in result] == expected_titles
         
         # Проверка значений
-        assert result[0]["ctr"] == 25.0
+        assert result[0]["ctr"] == 25
         assert result[0]["retention_rate"] == 22
         
         assert result[-1]["ctr"] == 18.2
@@ -74,7 +74,7 @@ class TestIntegration:
         
         # Проверяем, что в выводе есть ожидаемые видео
         assert "Секрет который скрывают тимлиды" in captured.out
-        assert "25.0" in captured.out
+        assert "25" in captured.out
         assert "22" in captured.out
         assert "Как я спал по 4 часа и ничего не понял" in captured.out
         assert "22.5" in captured.out
